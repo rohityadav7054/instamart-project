@@ -75,7 +75,7 @@
             <h2>Welcome back, Instasmarter!</h2>
         </div>
         <div>
-            <form action="Authentication" method="get">  
+            <form action="AuthenticationFilter" method="get">  
                 <input type="text" placeholder="Username" name="username" required />
                 <input type="password" placeholder="Password" name="password" required />
                 <button type="submit">SIGN IN</button>

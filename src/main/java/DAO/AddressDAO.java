@@ -14,9 +14,7 @@ public class AddressDAO {
 	public  Address findById(Integer id) throws ClassNotFoundException, SQLException{
 		Address address = null;
 		
-		Connection con = new DBConnection().getConnection();
-		
-		
+		Connection con = DBConnection.getConnection();	
 		//fill your code
 		 String query = "SELECT * FROM address WHERE id = ?";
 	        PreparedStatement ps = con.prepareStatement(query);
@@ -41,7 +39,7 @@ public class AddressDAO {
 	
 	public ArrayList<Address> findByUserId(Integer userId) throws ClassNotFoundException, SQLException{
 		ArrayList<Address> addressList = new ArrayList<>();
-		Connection con = new DBConnection().getConnection();
+		Connection con = DBConnection.getConnection();
 
 		//fill you code here
 		String query = "SELECT * FROM address WHERE user_id = ?";
@@ -67,7 +65,7 @@ public class AddressDAO {
 	
 	public ArrayList<Address> findByUserId(Integer userId, String city) throws ClassNotFoundException, SQLException{
 		ArrayList<Address> addressList = new ArrayList<>();
-		Connection con = new DBConnection().getConnection();
+		Connection con =  DBConnection.getConnection();
 		
                //fill your code here
 		 String query = "SELECT * FROM address WHERE user_id = ? AND city = ?";
@@ -93,7 +91,7 @@ public class AddressDAO {
 	}
 	
 	public Address create(Address address,Integer userId) throws ClassNotFoundException, SQLException{
-		Connection con = new DBConnection().getConnection();
+		Connection con = DBConnection.getConnection();
 		PreparedStatement ps = con.prepareStatement("insert into address(user_id,street,city,state,country,pincode) values(?,?,?,?,?,?)");
 		
 
@@ -126,14 +124,14 @@ public class AddressDAO {
 		return address;
 		
 	}
-	public static void main(String[] args) {
-		try {			
-		Address add = new AddressDAO().findById(1);
-		System.out.println(add.getCity());
-		}
-		catch(Exception e) {
-			System.out.print(e.getMessage());
-		}
-	}
+//	public static void main(String[] args) {
+//		try {			
+//		Address add = new AddressDAO().findById(1);
+//		System.out.println(add.getCity());
+//		}
+//		catch(Exception e) {
+//			System.out.print(e.getMessage());
+//		}
+//	}
 
 }
